@@ -1,4 +1,3 @@
-🎮 Gameplay Features
 	Combat system:
 	•	Melee or ranged attacks (switchable via UI).
 	•	Each attack type has its own animations, sounds, and visual effects.
