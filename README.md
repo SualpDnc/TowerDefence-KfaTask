@@ -1,4 +1,7 @@
-	Combat system:
+A prototype Tower Defence / Survival hybrid game built in Unity. Made for KFA Entertainment case.
+It mixes 2D sprites in a 3D world, wave-based enemy attacks, and both melee and ranged combat.
+	
+    Combat system:
 	•	Melee or ranged attacks (switchable via UI).
 	•	Each attack type has its own animations, sounds, and visual effects.
 	•	Blood particle effects for melee hits.
