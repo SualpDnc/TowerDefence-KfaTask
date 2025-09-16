@@ -7,11 +7,14 @@ public class PlayerAttack : MonoBehaviour
     public AttackType attackType = AttackType.Melee;
 
     private float cooldownTimer = 0f;
+
     [Header("Attack Settings")]
     public float meleeRange = 2f;
     public float rangedRange = 10f;
-    public float attackCooldown = 1f;
+    public float meleeCooldown = 1f;
+    public float rangedCooldown = 2f;
     public int attackDamage = 2;
+
     [Header("Melee")]
     public AudioClip meleeSound;
     [Header("Effects")]
@@ -19,7 +22,7 @@ public class PlayerAttack : MonoBehaviour
 
     [Header("Ranged")]
     public GameObject projectilePrefab;
-    public Transform firePoint;  // Ok/büyünün çıkacağı nokta
+    public Transform firePoint;  // projectile çıkış noktası
     public AudioClip rangedSound;
 
     private Animator anim;
@@ -41,7 +44,15 @@ public class PlayerAttack : MonoBehaviour
             if (nearestEnemy != null)
             {
                 Attack(nearestEnemy);
-                cooldownTimer = attackCooldown;
+
+                if (attackType == AttackType.Melee)
+                {
+                    cooldownTimer = meleeCooldown;
+                }
+                else if (attackType == AttackType.Ranged)
+                {
+                    cooldownTimer = rangedCooldown;
+                }
             }
         }
     }
@@ -75,7 +86,6 @@ public class PlayerAttack : MonoBehaviour
             enemy.TakeDamage(attackDamage);
             PlaySound(meleeSound);
 
-            // Kan efekti
             if (meleeBloodEffect != null)
                 Instantiate(meleeBloodEffect, enemy.transform.position, Quaternion.identity);
         }
@@ -100,6 +110,7 @@ public class PlayerAttack : MonoBehaviour
         if (audioSource != null && clip != null)
             audioSource.PlayOneShot(clip);
     }
+
     public void SetAttackType(AttackType newType)
     {
         attackType = newType;

@@ -4235,7 +4235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackType: 0
   meleeRange: 5
-  rangedRange: 15
+  rangedRange: 30
   attackCooldown: 1
   attackDamage: 1
   meleeSound: {fileID: 8300000, guid: 88b1cbe3caa3fee4b8b103b5edd7aba9, type: 3}
