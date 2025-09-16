@@ -42,6 +42,10 @@ public class GameManager : MonoBehaviour
                 musicSource.clip = backgroundLoop;
             }
         }
+        if (musicSource != null && musicSource.clip != null)
+        {
+            if (!musicSource.isPlaying) musicSource.Play();
+        }
 
         UpdateEnemiesPassedUI();
     }
